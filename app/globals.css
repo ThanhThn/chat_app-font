@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -18,16 +17,45 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  @apply bg-nobleBlack-700;
+}
+
+input:is(:-webkit-autofill, :autofill) {
+  -webkit-box-shadow: 0 0 0px 1000px #363A3D inset;
+  -webkit-text-fill-color: white;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .success_icon {
+    @apply text-stemGreen-600 drop-shadow-multiple-stemGreen-600/30
+  }
+  .success{
+    @apply text-stemGreen-600
+  }
+
+  .warning_icon {
+    @apply text-happyOrange-600 drop-shadow-multiple-happyOrange-600/30
+  }
+  .warning{
+    @apply text-happyOrange-600
+  }
+
+  .error_icon {
+    @apply text-redPower-600 drop-shadow-multiple-redPower-600/30
+  }
+  .error{
+    @apply text-redPower-600
   }
 }
